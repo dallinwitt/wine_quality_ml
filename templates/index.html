@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Wine Quality Estimator (10-point Scale)</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <label for="facid">Fixed Acidity:</label><br>
+			<input type="text" id='facid' name = 'facid' placeholder="Typical: 6.4-7.7"></br></br>
+			<label for="vacid">Volatile Acidity:</label><br>
+			<input type="text"  id='vacid' name = 'vacid' placeholder="Typical: 0.2-0.4"></br></br>
+			<label for="cacid">Citric Acid:</label><br>
+			<input type="text"  id='cacid' name = 'cacid' placeholder="Typical: 0.2-0.4"></br></br>
+			<label for="rsugar">Residual Sugar:</label><br>
+			<input type="text"  id='rsugar' name = 'rsugar' placeholder="Typical: 1.8-8.1"></br></br>
+			<label for="chlor">Chlorides:</label><br>
+			<input type="text"  id='chlor' name = 'chlor' placeholder="Typical: 0.04-0.06"></br></br>
+			<label for="fsulf">Free Sulfur Dioxide:</label><br>
+			<input type="text"  id='fsulf' name = 'fsulf' placeholder="Typical: 17-41"></br></br>
+			<label for="dens">Total Sulfur Dioxide:</label><br>
+			<input type="text"  id='tsulf' name = 'tsulf' placeholder="Typical: 77-156"></br></br>
+			<label for="dens">Density:</label><br>
+			<input type="text"  id='dens' name = 'dens' placeholder="Typical: 0.992-0.997"></br></br>
+			<label for="ph">pH:</label><br>
+			<input type="text"  id='ph' name = 'ph' placeholder="Typical: 3.11-3.32"></br></br>
+			<label for="sulphates">Sulphates:</label><br>
+			<input type="text"  id='sulphates' name = 'sulphates' placeholder="Typical: 0.43-0.60"></br></br>
+			<label for="alc">Alcohol:</label><br>
+			<input type="text"  id='alc' name = 'alc' placeholder="Typical: 9.5-11.3"></br></br>
+			<button type="Submit" id="login-button" class="btn btn-primary btn-block btn-large">Estimate Quality</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
